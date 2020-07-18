@@ -285,12 +285,14 @@ router.get("/activate-account/:code", async (req, res) => {
       { activated: true }
     );
     if (user.n > 0) {
+      //get User 
+      const thisUser = await UserModel.findOne({ _id: userid })
       //send welcome mail
       const from = `"${process.env.SITE_DOMAIN}" <accounts@${process.env.SITE_DOMAIN}>`;
       const subject = `Welcome to ${process.env.SITE_NAME}`;
       const welcomeEmailTemplate = require("../middleware/Emails/welcome");
-      const messageBody = welcomeEmailTemplate( user);
-      const emailSent = sendEmail(from, user.email, subject, messageBody);
+      const messageBody = welcomeEmailTemplate( thisUser);
+      const emailSent = sendEmail(from, thisUser.email, subject, messageBody);
         //generate token
       const token = jwt.sign({ userid}, process.env.jwtSecret, {
         expiresIn: 720000,
