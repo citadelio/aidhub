@@ -40,10 +40,10 @@ module.exports = async (from, to, subject, body) => {
     // text: "Hello world?", // plain text body
     html: body // html body
   }
-  console.log("in Email")
+  
   // send mail with defined transport object
   let info = await transporter.sendMail(payload);
-  console.log(info)
+  // console.log(info)
   if (info.Error) {
     return false;
   } else if (info.accepted.length > 0) {
