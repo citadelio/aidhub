@@ -289,7 +289,6 @@ router.get("/activate-account/:code", async (req, res) => {
       { _id: userid },
       { activated: true }
     );
-    console.log(user)
     if (user.n > 0) {
       //get User 
       const thisUser = await UserModel.findOne({ _id: userid })
