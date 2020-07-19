@@ -1,14 +1,36 @@
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+
+const oauth2Client = new OAuth2(
+  process.env.OAUTH_CLIENT_ID,
+  process.env.OAUTH_CLIENT_SECRET,
+  "https://developers.google.com/oauthplayground"
+);
+
+oauth2Client.setCredentials({
+  refresh_token: process.env.OAUTH_REFRESH_TOKEN
+});
+const accessToken = oauth2Client.getAccessToken()
 module.exports = async (from, to, subject, body) => {
  
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true, // true for 465, false for other ports
+    // auth: {
+    //   user: process.env.Emailuser,
+    //   pass: process.env.Emailpassword
+    // }
+    service: "gmail",
     auth: {
-      user: process.env.Emailuser,
-      pass: process.env.Emailpassword
-    }
+      type: "OAuth2",
+      user: process.env.Emailuser, 
+      clientId:  process.env.OAUTH_CLIENT_ID,
+      clientSecret: process.env.OAUTH_CLIENT_SECRET,
+      refreshToken: process.env.OAUTH_REFRESH_TOKEN,
+      accessToken: accessToken
+ }
   });
  
   const payload = {
@@ -29,32 +51,3 @@ module.exports = async (from, to, subject, body) => {
   }
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 };
-
-// const sgMail = require('@sendgrid/mail');
-// sgMail.setApiKey("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");
-// // sgMail.setApiKey(process.env.SENDGRID_KEY);
-// module.exports = async(from,to,subject,message)=> {
-//   const msg = {
-//     to,
-//     from,
-//     subject,
-//     html: message
-//   };
-//   const resp = await sgMail.send(msg);
-//   console.log(resp)
-// }
-
-
-// var mailgun = require('mailgun-js')({apiKey: process.env.mailgun_API_KEY, domain: process.env.mailgun_DOMAIN});
-// module.exports = async(from,to,subject,message)=> {
-// const data = {
-//   from: 'Excited User <me@samples.mailgun.org>',
-//   to: 'foo@example.com, bar@example.com',
-//   subject: 'Hello',
-//   text: 'Testing some Mailgun awesomeness!'
-// };
-
-// mailgun.messages().send(data, (error, body) => {
-//   console.log(body);
-// });
-// }
