@@ -264,6 +264,7 @@ router.get("/activate-account/:code", async (req, res) => {
     const activationDetails = await Activation.findOne({
       code: req.params.code,
     });
+    console.log(activationDetails)
     if (!activationDetails) {
       return res.json({
         errors: [
@@ -273,6 +274,7 @@ router.get("/activate-account/:code", async (req, res) => {
         ],
       });
     }
+    console.log(2)
 
     if (new Date() > activationDetails.expiry) {
       return res.json({
@@ -283,21 +285,28 @@ router.get("/activate-account/:code", async (req, res) => {
         ],
       });
     }
-
+console.log(3)
     const userid = activationDetails.userid;
     const user = await UserModel.updateOne(
       { _id: userid },
       { activated: true }
     );
+    console.log(user)
     if (user.n > 0) {
       //get User 
       const thisUser = await UserModel.findOne({ _id: userid })
+      console.log(4)
       //send welcome mail
       const from = `"${process.env.SITE_DOMAIN}" <accounts@${process.env.SITE_DOMAIN}>`;
+      console.log(5)
       const subject = `Welcome to ${process.env.SITE_NAME}`;
       const welcomeEmailTemplate = require("../middleware/Emails/welcome");
+      console.log(6)
       const messageBody = welcomeEmailTemplate( thisUser);
+      console.log(7)
       const emailSent = sendEmail(from, thisUser.email, subject, messageBody);
+      console.log(8)
+      console.log(emailSent)
         //generate token
       const token = jwt.sign({ userid}, process.env.jwtSecret, {
         expiresIn: 720000,
