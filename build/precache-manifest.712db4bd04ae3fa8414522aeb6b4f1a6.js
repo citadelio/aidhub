@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a9cc082d8b10619295d1bf77f9801329",
+    "revision": "3eb67309cd2781e27e37c932b68fe764",
     "url": "/index.html"
   },
   {
-    "revision": "874e96ef0543987a461a",
-    "url": "/static/css/main.d5e62f7b.chunk.css"
+    "revision": "283cd70e23976d7ed0b5",
+    "url": "/static/css/2.139e4c5a.chunk.css"
   },
   {
-    "revision": "83fffb72b5abe62e3f4b",
-    "url": "/static/js/2.aa3edc17.chunk.js"
+    "revision": "bf85d4467d8290f31161",
+    "url": "/static/css/main.7dd6e759.chunk.css"
+  },
+  {
+    "revision": "283cd70e23976d7ed0b5",
+    "url": "/static/js/2.d5ea18af.chunk.js"
   },
   {
     "revision": "6b3248a1692933689dcb27b9e1ed5092",
-    "url": "/static/js/2.aa3edc17.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.d5ea18af.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "874e96ef0543987a461a",
-    "url": "/static/js/main.961a3703.chunk.js"
+    "revision": "bf85d4467d8290f31161",
+    "url": "/static/js/main.9ef8b0d4.chunk.js"
   },
   {
     "revision": "9b4e396c183e42c1fa5c",
@@ -40,6 +44,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/6af9989e-235b-4c75-8c08-a83bdaef3f66d41d.759d9222.eot"
   },
   {
+    "revision": "ba80b6797eed3127ae0846cbe54c982c",
+    "url": "/static/media/affiliates.ba80b679.svg"
+  },
+  {
     "revision": "8dd7d27bdda23a05ace8e70f1741030d",
     "url": "/static/media/c9aeeabd-dd65-491d-b4be-3e0db9ae47a0.8dd7d27b.woff"
   },
@@ -52,6 +60,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/d513e15e-8f35-4129-ad05-481815e52625.289fbfee.woff2"
   },
   {
+    "revision": "08952e464195ae91d49910a49f7522af",
+    "url": "/static/media/dashboard.08952e46.svg"
+  },
+  {
     "revision": "c701385bdc85ee08f2fad495842446ad",
     "url": "/static/media/e0542193-b2e6-4273-bc45-39d4dfd3c15bd41d.c701385b.eot"
   },
@@ -62,5 +74,21 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f2c77a6b7e26ff160fdb4193b383b1ea",
     "url": "/static/media/flags@2x.f2c77a6b.png"
+  },
+  {
+    "revision": "62dfdb87bc85ba836f356cee26044f89",
+    "url": "/static/media/payouts.62dfdb87.svg"
+  },
+  {
+    "revision": "8bf288f32e6e3f53635e0e1d3a0e693f",
+    "url": "/static/media/performance.8bf288f3.svg"
+  },
+  {
+    "revision": "6fb233ed39d043ce3ebb08f3b330e1c5",
+    "url": "/static/media/settings.6fb233ed.svg"
+  },
+  {
+    "revision": "59cc8ac3981028f210654c7b20bc2bf9",
+    "url": "/static/media/wallet.59cc8ac3.svg"
   }
 ]);

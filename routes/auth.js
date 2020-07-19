@@ -62,6 +62,13 @@ router.post(
             ],
           });
         }
+        //check if user has verified their email
+        if (!user.activated) {
+          return res.json({
+            unverified:true
+          });
+        }
+
         let token = jwt.sign({ userid: user.id }, process.env.jwtSecret, {
           expiresIn: 72000,
         });
@@ -178,7 +185,6 @@ router.post(
       });
 
       activationLink.save();
-
       // send activation mail to user
       const from = `${process.env.SITE_DOMAIN} <activation@${process.env.SITE_DOMAIN}>`;
       const subject = `Verify your ${process.env.SITE_NAME} account`;
@@ -210,10 +216,10 @@ router.post(
   }
 );
 
-router.get("/send-activation", protectedRoute, async (req, res) => {
-  const userid = req.userid;
+router.get("/send-activation/:email", async (req, res) => {
+  const {email} = req.params;
   try {
-    const user = await UserModel.findById(userid);
+    const user = await UserModel.findOne({email});
     if (!user) {
       return res.json({ status: false });
     }
@@ -234,13 +240,12 @@ router.get("/send-activation", protectedRoute, async (req, res) => {
     });
 
     activationLink.save();
-
     //send activation mail to user
     const from = `${process.env.SITE_DOMAIN} <activation@${process.env.SITE_DOMAIN}>`;
     const subject = `Activate your ${process.env.SITE_NAME} account`;
     const messageBody = activationEmailTemplate(user, activationLink);
     const emailSent = await sendEmail(from, user.email, subject, messageBody);
-    return res.status(200).json({ emailSent });
+    return res.status(200).json({success:true });
   } catch (err) {
     return res.json({
       errors: [

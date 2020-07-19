@@ -450,7 +450,7 @@ module.exports = user => {
                   <td class="email-masthead">
                     <a href="${process.env.SITE_FULL_URL}" class="f-fallback email-masthead_name">
                     
-                    <img src="https://res.cloudinary.com/citadel/image/upload/v1585559791/viralspring_fulllogo_dark_pubejl.png" class="email_logo"/>
+                    <img src="https://res.cloudinary.com/citadel/image/upload/v1594980481/aidhub-logo-dark_eewgkw.png" class="email_logo"/>
                   </a>
                   </td>
                 </tr>
@@ -465,7 +465,7 @@ module.exports = user => {
                             <h1>Welcome, ${helperFunctions.makeTitleCase(
                               user.name
                             )}!</h1>
-                            <p>Thanks for choosing ${process.env.SITE_NAME}. We’re thrilled to have you on board. ${process.env.SITE_NAME} helps you sell your items faster and grow your business quicker by leveraging the network of thousands of other entrepreneurs all for FREE.                           
+                            <p>Thanks for choosing ${process.env.SITE_NAME}. We’re thrilled to have you on board. With ${process.env.SITE_NAME}, you can easily trade you gift cards and bitcoins at very attractive rates                 
                             </p>
                             <p>To get the most out of ${process.env.SITE_NAME}, we've put together some actions to get you started right away:</p>
                             <!-- Action -->
@@ -475,14 +475,14 @@ module.exports = user => {
                                   <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
                                     <tr>
                                       <td align="center">
-                                        <a style="color:#fff" href="${process.env.SITE_FULL_URL}/advert/create" class="f-fallback button button--purple" target="_blank">Create an Advert</a>
+                                        <a style="color:#fff" href="${process.env.SITE_FULL_URL}/dashboard" class="f-fallback button button--purple" target="_blank">Buy/Sell Gift Cards</a>
                                       </td>
                                     </tr>
                                   </table>
                                 </td>
                               </tr>
                             </table>
-                            <p>Your Advert will be shared by thousands of other entrepreneurs to their own network, thereby reaching millions of potential customers all at zero cost.</p>
+                           
                             <table class="attributes" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                               <tr>
                                 <td class="attributes_content">
@@ -491,7 +491,7 @@ module.exports = user => {
                                       <td class="attributes_item">
                                         <span class="f-fallback">
                                           <strong><u>More Freebies</u></strong> <br>
-                                          You get extra points each time you share an Advert posted by others. you also get points when anyone views these Adverts
+                                          You get extra points each time you perform a transaction
                                         </span>
                                       </td>
                                     </tr>
@@ -499,18 +499,18 @@ module.exports = user => {
                                 </td>
                               </tr>
                             </table>
-                            <p>The points you get can be used to boost your own Adverts to ensure that your advert remains at the top ad gets more visibility.</p>
+                            
 <br>
 <p>If you have any questions, feel free to <a href="mailto:${process.env.SITE_DOMAIN}@gmail.com">contact our customer success team</a> anytime. (We're lightning quick at replying.) We also offer <a href="${process.env.SITE_FULL_URL}#live-chat">live chat</a> during business hours.</p>
 
                             <p>Welcome aboard,
-                              <br>Hope Chizoba for the ${process.env.SITE_NAME} Team</p>
+                              <br>${process.env.SITE_NAME} Team</p>
                             <!-- Sub copy -->
                             <table class="body-sub" role="presentation">
                               <tr>
                                 <td>
                                   <p class="f-fallback sub">If you’re having trouble with the button to create a advert, copy and paste the URL below into your web browser.</p>
-                                  <p class="f-fallback sub">${process.env.SITE_FULL_URL}/advert/create</p>
+                                  <p class="f-fallback sub">${process.env.SITE_FULL_URL}/dashboard</p>
                                 </td>
                               </tr>
                             </table>
