@@ -298,11 +298,11 @@ router.get("/activate-account/:code", async (req, res) => {
       const from = `"${process.env.SITE_DOMAIN}" <accounts@${process.env.SITE_DOMAIN}>`;
      
       const subject = `Welcome to ${process.env.SITE_NAME}`;
-      console.log(1)
+    
       const messageBody = welcomeEmailTemplate( thisUser);
-    console.log(2)
+   
       const emailSent = sendEmail(from, thisUser.email, subject, messageBody);
-     console.log(3)
+    
         //generate token
       const token = jwt.sign({ userid}, process.env.jwtSecret, {
         expiresIn: 720000,
@@ -377,7 +377,7 @@ router.post(
       //send reset email to user
       const from = `"${process.env.SITE_DOMAIN}" <activation@${process.env.SITE_DOMAIN}>`;
       const subject = `Reset your ${process.env.SITE_NAME} password`;
-      const resetPasswordEmailTemplate = require("../middleware/Emails/resetpassword");
+      const resetPasswordEmailTemplate = require("../middleware/emails/resetpassword");
       const messageBody = resetPasswordEmailTemplate(
         user,
         savedResetDetails,
