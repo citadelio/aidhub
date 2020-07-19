@@ -579,4 +579,21 @@ router.post(
   }
 );
 
+router.post('/create-blockchain-wallet', protectedRoute,  async (req, res)=>{
+  try{
+    //get User
+      const user = await UserModel.findById(req.userid);
+      //create blockchain wallet
+  }catch(err){
+    return res.json({
+      errors: [
+        {
+          msg: "An error occurred, try again",
+          err,
+        },
+      ],
+    });
+  }
+})
+
 module.exports = router;

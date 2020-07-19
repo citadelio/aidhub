@@ -35,6 +35,7 @@ app.use('/uploads', express.static('uploads'));
 
 //set routes
 app.use('/auth', require('./routes/auth'));
+app.use('/users', require('./routes/users'));
 app.get("/", (req, res)=>res.json({msg:"Welcome to Aidhub"}))
 
 

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "postinstall": "blockchain-wallet-service -V"
   },
   "author": "Hussein Warrake",
   "license": "ISC",
@@ -27,7 +28,8 @@
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
-    "uuid": "^8.2.0"
+    "uuid": "^8.2.0",
+    "blockchain-wallet-service": "~0.22.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
