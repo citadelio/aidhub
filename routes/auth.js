@@ -298,11 +298,11 @@ router.get("/activate-account/:code", async (req, res) => {
       const from = `"${process.env.SITE_DOMAIN}" <accounts@${process.env.SITE_DOMAIN}>`;
      
       const subject = `Welcome to ${process.env.SITE_NAME}`;
-   
+      console.log(1)
       const messageBody = welcomeEmailTemplate( thisUser);
-    
+    console.log(2)
       const emailSent = sendEmail(from, thisUser.email, subject, messageBody);
-     
+     console.log(3)
         //generate token
       const token = jwt.sign({ userid}, process.env.jwtSecret, {
         expiresIn: 720000,
